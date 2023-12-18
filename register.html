@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <title>Đăng ký</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="to">
+      <div class="form">
+        <h2>USER</h2>
+        <label style="margin-left: -150px">Tài Khoản</label>
+        <input type="text" id="account_re" name="account" style="width:200px;"/>
+        <label style="margin-left: -150px"> Mật Khẩu</label>
+        <input type="password" id="password_re" name="password" style="width:200px;"/>
+        
+        <label style="margin-left: -150px"> Nhập lại mật Khẩu</label>
+        <input type="password" id="password_re2" name="password_2" style="width:200px;"/>
+        <button name="Login" value="OK" type="button" onclick="register()">
+          Đăng ký
+        </button>
+        <script>
+          function register() {
+            let valuePassword = document.getElementById("password_re").value;
+            let valuePassword2 = document.getElementById("password_re2").value;
+            if (
+              valuePassword == valuePassword2
+            ) {
+              let valueAccount = document.getElementById("account_re").value;
+
+
+                var existingEntries = JSON.parse(localStorage.getItem("users"));
+                if(existingEntries == null){
+                  existingEntries = [];
+                }else{
+                  let checkUser =existingEntries.some(element => element.user == valueAccount);
+                  if(checkUser){
+                    alert("Tài khoản này đã được đăng ký");
+                    return;
+                  }
+                }
+                 
+                var entry = {
+                    "user": valueAccount,
+                    "password": valuePassword,
+                };
+                existingEntries.push(entry);
+                localStorage.setItem("users", JSON.stringify(existingEntries));
+
+                // document.getElementById("formdetails").reset();
+              alert("đăng ký thành công");
+              window.open("login.html");
+            } else {
+              alert("Mật khẩu không giống nhau");
+              return;
+            }
+            return;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <title>Đăng nhập</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="to">
+      <div class="form">
+        <h2>ADMIN</h2>
+        <label style="margin-left: -150px">Tài Khoản</label>
+        <input type="text" id="account_admin" name="account" />
+        <label style="margin-left: -150px"> Mật Khẩu</label>
+        <input type="password" id="password_admin" name="password" />
+        <button name="Login" value="OK" type="button" onclick="login()">
+          Đăng Nhập
+        </button>
+        <script>
+          function login() {
+            let rightAccount = "admin";
+            let rightPassword = "123123";
+            let valueAccount = document.getElementById("account_admin").value;
+            let valuePassword = document.getElementById("password_admin").value;
+            if (
+              valueAccount == rightAccount &&
+              valuePassword == rightPassword
+            ) {
+              alert("đăng nhập thành công");
+              window.open("admin-index.html");
+            } else {
+              alert("đăng nhập không thành công");
+            }
+            return;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

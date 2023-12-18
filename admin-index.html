@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <title>admin</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      table, th, td {
+        border:1px solid black;
+      }
+      </style>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <table border="1">
+      <div>Danh sách user</div>
+      <tbody id="table1">
+        <tr>
+          <th> Tài khoản </th>
+          <th> Mật khẩu </th>
+        </tr>
+      </tbody>
+    </table>
+
+    <table border="1">
+
+      <div >
+        <p  style="margin-top: 100px;">Danh sách feedbacks</p>
+        <tbody id="table2">
+          <tr>
+            <th> Name </th>
+            <th> Mobile </th>
+            <th> Email </th>
+            <th> Address </th>
+            <th> Content </th>
+          </tr>
+        </tbody>
+      </div>
+    </table>
+
+    
+    <script>
+      let feedbacks = JSON.parse(localStorage.getItem("feedbacks"));
+      let users = JSON.parse(localStorage.getItem("users"));
+  
+        $.each(users, function(key, value){
+          $('#table1').append(`<tr>
+          <td class="Book_Title">${value.user}</td>
+          <td class="Author">${value.password}</td>
+        </tr>`);
+        })
+
+
+        
+        $.each(feedbacks, function(key, value){
+          $('#table2').append(`<tr>
+          <td class="Book_Title">${value.name}</td>
+          <td class="Author">${value.mobile}</td>
+          <td class="Author">${value.email}</td>
+          <td class="Author">${value.address}</td>
+          <td class="Author">${value.content}</td>
+        </tr>`);
+        })
+        
+      </script>
+  </body>
+</html>

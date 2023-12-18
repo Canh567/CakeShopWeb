@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Cake Shop</title>
+</head>
+
+<body>
+    <!--------------------------------------header---------------->
+    <header>
+        <a href="#home" class="logo"><img alt="" src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/logo.png"></a>
+
+        <nav class="navigate">
+            <ul>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Product Search</title>
+                    <style>
+                        /* Add some basic styling to the search bar */
+                        #search-container {
+                            display: flex;
+                            align-items: center;
+                            max-width: 400px;
+                            margin: 0 auto;
+                        }
+                
+                        #search-bar {
+                            flex: 1;
+                            padding: 8px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px 0 0 4px;
+                        }
+                
+                        #search-button {
+                            padding: 8px;
+                            background-color: #4CAF50;
+                            color: white;
+                            border: none;
+                            border-radius: 0 4px 4px 0;
+                            cursor: pointer;
+                        }
+                    </style>
+                </head>
+                <body>
+                
+                    <h1>Product Search</h1>
+                
+                    <div id="search-container">
+                        <input type="text" id="search-bar" name="q" placeholder="Enter Product Search...">
+                        <button type="submit" id="search-button">Search</button>
+                    </div>
+                
+                </body>
+                </html>
+                
+                <li><a href="#"></a></li>
+                <li><a href="orders.html">Cart: <span id="cart-quantity">0</span></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#Trang Chủ" class="active">Home page</a></li>
+                <li><a href="#Tổng Quan">Overview</a></li>
+                <li><a href="#Sản Phẩm">Product</a></li>
+                <li><a href="#Dịch Vụ">Service</a></li>
+                <li><a href="#Liên Hệ">Contact</a></li>
+                <li><a href="#Đánh giá">Evaluate</a></li>
+            </ul>
+        </nav>
+        <div id="menu"><i class="fas fa-bars"></i></div>
+    </header>
+    
+    <!-------------------------Home------------------->
+    <section id="home" class="home">
+        <h1>Best cake in town</h1>
+        <p><br> </p>
+        <div class="home-btn">
+            <button>Book Now<i class="fas fa-angle-right"></i></button>
+        </div>
+    </section>
+    <!-------------------------about------------------->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>OUR STORY</h2>
+            <p>Welcome to our cake shop! We are proud to be a trusted place to discover the most wonderful pastries. .<br>
+                With the perfect combination of traditional flavors and modern creativity, we bring you cakes that are fresh, beautiful and diverse in flavor. <br>
+                Come and enjoy our unique cakes, each cake is a small work of art that brings joy to your taste buds..<br>
+               </p>
+            <button class="btn">Read More<i class="fas fa-angle-right"></i></button>
+        </div>
+        <div class="image">
+            <img src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/im2.png" alt="img">
+        </div>
+    </section>
+    <!-----------------------product-------------------->
+    <section class="product" id="product">
+        <h1 class="title">Our most popular <span>cakes</span></h1>
+        <div class="cake-product">
+            <div class="inner-cake-row" id="product-container">
+                <!-- Modal -->
+                <div class="modal" id="productModal">
+                    <div class="modal-content">     
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <img id="modal-image" width="400px" height="200px">
+                        <div class="product-detail">
+                            <h2 id="modalTitle"></h2>
+                            <p id="modalContent"></p>
+                            <div>Price: <span id="modalPrice" style="font-weight: bold; color: red;"></span></div>
+                            <div class="product-detail-quantity">
+                                <label for="quatity">Quantity: </label>
+                                <input type="number" id="quantity" min="0" max="99">
+                            </div>
+                            <button class="btn" id="btn-order" onclick="handleOrderProduct()">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----------------------service--------------------->
+    <section id="service" class="service">
+        <h1 class="title">design your <span>occasion</span></h1>
+        <div class="cake-list">
+            <a class="btn1 active" data-src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/birthday.jpg">Birthday</a>
+            <a class="btn1" data-src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/babyshower.jpg">Baby-Shower</a>
+            <a class="btn1" data-src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/weeding.jpg">Weeding</a>
+            <a class="btn1" data-src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/cupcake.jpg">cup-cake</a>
+        </div>
+        <div class="cake-row">
+            <div class="image">
+                <img src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/birthday.jpg" id="cake-img" alt="">
+            </div>
+            <div class="cake-content">
+                <div class="cake-info">
+                    <h3> Design Your Cake with Flavors
+                        &nbsp;<i class="fas fa-birthday-cake"></i></h3>
+                    <a><i class="fas fa-hand-point-right"></i>CLASSIC RED VELVET<br></a>
+                    <a><i class="fas fa-hand-point-right"></i>CHOCOLATE VANILLA<br></a>
+                    <a><i class="fas fa-hand-point-right"></i>DOUBLE CHOCOLATE<br></a>
+                    <a><i class="fas fa-hand-point-right"></i>GLUTEN FREE RED VELVET<br></a>
+                    <a><i class="fas fa-hand-point-right"></i>SUGAR FREE CHOCOLATE<br></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------------------contact us--------------->
+    <footer class="contact" id="contact">
+        <div class="cake-contact">
+            <div class="cake-contact-row">
+                <div class="cake-contact-col">
+                    <img src="https://anitalianinmykitchen.com/wp-content/uploads/2023/02/carrot-cake-blog-1-of-1.jpg" alt="img" class="images">
+                </div>
+                <div class="cake-contact-col">
+                    <h1>Contact Us</h1>
+                    <div class="social">
+
+                    </div>
+                    <p>We want to hear your comments:</p>
+                    <form id="formdetails" method="get">
+                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                    <input type="text" name="email" id="email" placeholder="Enter your email" required>
+                    <input type="text" name="addresss" id="address" placeholder="Enter your address" required>
+                    <input type="text" name="mobile" id="mobile" placeholder="Enter your phone number"></textarea>
+                    <input type="text" name="content" id="content" placeholder="Write your feedback" required>
+
+
+
+<br/>
+                    <button class="btn" onclick="feedback()" type="button">Submit<i class="fas fa-angle-right"></i></button>
+                </form>
+                
+        <script>
+            function feedback(){
+                
+                let valueName = document.getElementById("name").value;
+                let valueEmail = document.getElementById("email").value;
+                let valueMobile = document.getElementById("mobile").value;
+                let valueAddress = document.getElementById("address").value;
+                let valueContent = document.getElementById("content").value;
+
+
+                var existingEntries = JSON.parse(localStorage.getItem("feedbacks"));
+                if(existingEntries == null) existingEntries = [];
+                var entry = {
+                    "name": valueName,
+                    "email": valueEmail,
+                    "mobile": valueMobile,
+                    "address": valueAddress,
+                    "content": valueContent
+                };
+                localStorage.setItem("entry", JSON.stringify(entry));
+                // Save allEntries back to local storage
+                existingEntries.push(entry);
+                localStorage.setItem("feedbacks", JSON.stringify(existingEntries));
+
+                document.getElementById("formdetails").reset();
+                return;
+            }
+          </script>
+                </div>
+            </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/@21.0227428,105.7739655,14.74z?entry=ttu" 
+                    width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+        </div>
+
+        <div class="copyright">
+            <a href="#home"><i class="fas fa-arrow-circle-up"></i></a>
+            <p>Design By&copy;Knowledge Place KP</p>
+        </div>
+    </footer>
+    <!-------------------------jquery------------------------------>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var products = [
+            {
+                id: 1,
+                img: "https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/coco.jpg",
+                price: "12$",
+                rating: 5,
+                title: "Cocoa cake",
+                desc: "không chứa Gluten – Ít đường",
+            },
+            {
+                id: 2,
+                img: "https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/lemon.jpg",
+                price: "12$",
+                rating: 5,
+                title: "Lime cake",
+                desc: "Gluten-free – Low in sugar",
+            },
+            {
+                id: 3,
+                img: "https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/raspberry.jpg",
+                price: "12$",
+                rating: 5,
+                title: "Raspberry cake",
+                desc: "Gluten - sugary",
+            },
+            {
+                id: 4,
+                img: "https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/straw.jpg",
+                price: "12$",
+                rating: 5,
+                title: "Strawberry cake",
+                desc: "gluten - sugary",
+            },
+            {
+                id: 5,
+                img: "https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/coc.jpg",
+                price: "12$",
+                rating: 5,
+                title: "Coconut cake",
+                desc: "Contains Gluten – Low sugar",
+            },
+            {
+                id: 6,
+                img: "https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/orange.jpg",
+                price: "12$",
+                rating: 5,
+                title: "Orange cake",
+                desc: "Contains Gluten – Low sugar",
+ 
+            }
+        ]
+
+        var orders = JSON.parse(localStorage.getItem('orders')) ?? [];
+        function setOrders() {
+            localStorage.setItem('orders', JSON.stringify(orders));
+            localStorage.setItem('cart_quantity', orders.length);
+            return;
+        }
+        
+        function getCartQuantity () {
+            document.getElementById('cart-quantity').innerText = localStorage.getItem('cart_quantity')? parseInt(localStorage.getItem('cart_quantity')) : 0;
+        }
+
+        getCartQuantity()
+
+        var productContainer = document.getElementById('product-container')
+        products.forEach(function (product) {
+            var productDiv = `<div class="inner-cake-col" onclick="showModal(${product.id})">
+                    <img src="${product.img}" alt="">
+                    <div class="cake-price">
+                        <p>${product.price}</p>
+                    </div>
+                    <div class="cake-star">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h2>${product.title}</h2>
+                    <h3>${product.desc}</h3>
+                    <p>Thanh toán</p>
+                </div>`
+            productContainer.innerHTML += productDiv;
+        })
+
+        $(document).ready(function () {
+            $('#menu').click(function () {
+                $(this).toggleClass('fas fa-times');
+                $('.navigate').toggleClass('nav-toggle');
+            });
+
+            $(window).on('scroll load',function()
+            {
+                $('#menu').removeClass('fas fa-times');
+                $('.navigate').removeClass('nav-toggle');
+            });
+
+            $('.service .cake-list .btn1').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+
+                let src = $(this).attr('data-src');
+                $('#cake-img').attr('src', src);
+            });
+
+        });
+
+        function handleOrderProduct(prodId) {
+            console.log(prodId);
+            let quantity = document.getElementById('quantity').value;
+            if (parseInt(quantity) === 0) {
+                alert('Quantity must be greater than 0')
+                return
+            }
+
+            if (!quantity) {
+                alert('Let me now your number product u want to order')
+                return
+            }
+
+            const productOrder = products.find((p) => p.id === prodId);
+            console.log(productOrder.title);
+            let order = {
+                title: productOrder.title,
+                img: productOrder.img,
+                price: parseFloat(productOrder.price) * parseInt(quantity),
+                quantity: quantity
+            }
+
+            orders.push(order);
+            setOrders();
+            
+            let currentCartQuantity = document.getElementById('cart-quantity').innerText;
+            localStorage.setItem('cart_quantity', parseInt(currentCartQuantity) + parseInt(quantity));
+            getCartQuantity();
+            closeModal();
+            alert('Order successfully!!');
+        }
+
+        function showModal(id) {
+            let product = products.find((p) => p.id === id);
+            document.getElementById('modalTitle').innerText = product.title;
+            document.getElementById('modalContent').innerText = product.desc;
+            document.getElementById('modalPrice').innerText = product.price;
+            document.getElementById('productModal').style.display = 'flex';
+            document.getElementById('modal-image').setAttribute('src', product.img)
+            document.getElementById('btn-order').setAttribute('onclick', `handleOrderProduct(${product.id})`)
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Close modal if the user clicks outside the modal
+        window.onclick = function(event) {
+            var modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

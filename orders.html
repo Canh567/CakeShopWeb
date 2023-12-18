@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Cake Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <!--------------------------------------header---------------->
+    <header>
+        <a href="#home" class="logo"><img alt="" src="https://raw.githubusercontent.com/minhlahoang/genzhoccode/master/Cake_Web/logo.png"></a>
+
+        <nav class="navigate">
+            <ul>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Product Search</title>
+                    <style>
+                        /* Add some basic styling to the search bar */
+                        #search-container {
+                            display: flex;
+                            align-items: center;
+                            max-width: 400px;
+                            margin: 0 auto;
+                        }
+                
+                        #search-bar {
+                            flex: 1;
+                            padding: 8px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px 0 0 4px;
+                        }
+                
+                        #search-button {
+                            padding: 8px;
+                            background-color: #4CAF50;
+                            color: white;
+                            border: none;
+                            border-radius: 0 4px 4px 0;
+                            cursor: pointer;
+                        }
+                    </style>
+                </head>
+                <body>
+                
+                    <h1>Product Search</h1>
+                
+                    <div id="search-container">
+                        <input type="text" id="search-bar" name="q" placeholder="Enter Product Search...">
+                        <button type="submit" id="search-button">Search</button>
+                    </div>
+                
+                </body>
+                </html>
+                
+                <li><a href="#"></a></li>
+                <li><a href="#Giỏ hàng">Cart: <span id="cart-quantity">0</span></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="indexUser.html" class="active">Home page</a></li>
+                <li><a href="#Tổng Quan">Overview</a></li>
+                <li><a href="#Sản Phẩm">Product</a></li>
+                <li><a href="#Dịch Vụ">Service</a></li>
+                <li><a href="#Liên Hệ">Contact</a></li>
+                <li><a href="#Đánh giá">Evaluate</a></li>
+            </ul>
+        </nav>
+        <div id="menu"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section id="home" class="home" style="padding-top: 0px !important;">
+        <h1>Yours orders</h1>
+        <p><br> </p>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+          </table>
+        <button class="btn btn-danger" onclick="handleDeleteOrder()">Delete all order</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        const orders = JSON.parse(localStorage.getItem('orders')) ?? [];
+        function setOrders() {
+            localStorage.setItem('orders', JSON.stringify(orders));
+            localStorage.setItem('cart_quantity', orders.length);
+            return;
+        }
+        
+        function getCartQuantity () {
+            document.getElementById('cart-quantity').innerText = localStorage.getItem('cart_quantity')? parseInt(localStorage.getItem('cart_quantity')) : 0;
+        }
+
+        getCartQuantity()
+        function setTableOrders() {
+            var tableBody = document.getElementById('table-body');
+            orders.forEach((order, index) => {
+                console.log(order);
+                let bodyElement = `<tr>
+                    <th scope="row">${index + 1}</th>
+                    <td><img src="${order.img}" width="100px" height="50px"></td>
+                    <td>${order.title}</td>
+                    <td>${order.quantity}</td>
+                    <td>${order.price}$</td>
+                </tr>`;
+                tableBody.innerHTML += bodyElement
+            });
+        }
+
+        setTableOrders()
+
+        function handleDeleteOrder() {
+            localStorage.removeItem('orders')
+            localStorage.removeItem('cart_quantity')
+            location.reload()
+        }
+    </script>
+</body>
+</html>
